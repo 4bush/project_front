@@ -55,12 +55,18 @@ export const WorkoutProvider = ({ children }) => {
     // сохранение тренки
     localStorage.setItem('workouts', JSON.stringify(updatedWorkouts));
   };
+//delete
+  const deleteWorkout = (id) => {
+  const updatedWorkouts = workouts.filter(workout => workout.id !== id);
+  setWorkouts(updatedWorkouts);
+  localStorage.setItem('workouts', JSON.stringify(updatedWorkouts));
+};
 
   return (
-    <WorkoutContext.Provider value={{ workouts, user, loading, login, logout, addWorkout }}>
-      {children}
-    </WorkoutContext.Provider>
-  );
+  <WorkoutContext.Provider value={{user,login, workouts, addWorkout, deleteWorkout, loading }}>
+    {children}
+  </WorkoutContext.Provider>
+);
 };
 
 export const useWorkouts = () => useContext(WorkoutContext);
