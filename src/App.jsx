@@ -1,8 +1,8 @@
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { WorkoutProvider } from './context/WorkoutContext';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
-import Home from './pages/home';
+import Home from './pages/Home';
 import Workouts from './pages/Workouts';
 import WorkoutDetail from './pages/WorkoutDetail';
 import DashboardLayout from './pages/Dashboard/DashboardLayout';
@@ -10,6 +10,7 @@ import DashboardOverview from './pages/Dashboard/Overview';
 import DashboardStats from './pages/Dashboard/Stats';
 import Profile from './pages/Profile';
 import About from './pages/About';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
           </Route>
         </Route>
 
-        <Route path="*" element={<h2 style={{ textAlign: 'center', padding: '80px', color: '#ef4444' }}>404 — Страница не найдена</h2>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </WorkoutProvider>
   );
